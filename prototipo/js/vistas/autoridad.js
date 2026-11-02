@@ -1,4 +1,3 @@
-// Vista: panel de la autoridad ambiental (pantalla 4). Publica cierres que afectan las recomendaciones.
 App.vistas = App.vistas || {};
 App.vistas.autoridad = (() => {
   const { $, fecha } = App.util;

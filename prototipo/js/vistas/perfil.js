@@ -1,4 +1,3 @@
-// Vista: perfil del turista (pantalla 1). Expone el perfil actual a las demás vistas.
 App.vistas = App.vistas || {};
 App.vistas.perfil = (() => {
   const { $ } = App.util;

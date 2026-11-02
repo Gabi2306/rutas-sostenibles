@@ -1,4 +1,3 @@
-// Vista: detalle de una ruta (pantalla contextual, se abre desde la lista con #detalle:<id>).
 App.vistas = App.vistas || {};
 App.vistas.detalle = (() => {
   const { $, cop, fecha, NIVEL } = App.util;

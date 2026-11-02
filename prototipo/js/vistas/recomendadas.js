@@ -1,4 +1,3 @@
-// Vista: rutas recomendadas (pantalla 2). Muestra las aptas y las descartadas con su motivo.
 App.vistas = App.vistas || {};
 App.vistas.recomendadas = (() => {
   const { $, cop, fecha, NIVEL } = App.util;

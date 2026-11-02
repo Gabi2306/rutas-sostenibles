@@ -1,4 +1,3 @@
-// Vista: panel de oferta para guías y operadores (pantalla 3).
 App.vistas = App.vistas || {};
 App.vistas.oferta = (() => {
   const { $ } = App.util;

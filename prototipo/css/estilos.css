@@ -1,5 +1,3 @@
-/* Estilos del prototipo. Variables de color en :root; componentes: menú, tarjetas, formularios, avisos. */
-
 :root { --verde:#1f6f54; --fondo:#f5f7f4; --tinta:#1b2420; --borde:#cfd8d2; --rojo:#a8322d; --ambar:#8a5a00; }
 * { box-sizing:border-box; }
 body { margin:0; font-family:"Segoe UI",Arial,sans-serif; color:var(--tinta); background:var(--fondo); line-height:1.45; }

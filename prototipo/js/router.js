@@ -1,5 +1,3 @@
-// Enrutador: implementa el modelo navegacional. Cada #hash es un nodo de navegación;
-// #detalle:<id> es un nodo con parámetro (la ruta elegida).
 App.router = (() => {
   function ir() {
     const [nodo, param] = decodeURIComponent(location.hash || "#perfil").slice(1).split(":");

@@ -1,8 +1,3 @@
-// Capa de datos simulada. En la arquitectura real estos datos viven en el
-// grafo de conocimiento (Neo4j) y siguen la estructura de la ontología:
-// Ruta -recorre-> Zona, Ruta -tieneDificultad-> Dificultad,
-// Ruta -tieneActividad-> TipoActividad, Cierre -afectaA-> Zona.
-// Los valores son ilustrativos.
 App.datos = {
   rutas: [
     { id: "cp", nombre: "Trek a Ciudad Perdida", zona: "Ciudad Perdida", dif: 3, act: "Trekking", horas: 96, costo: 1800000, cupo: 250, guia: true, norma: "Solo con agencia autorizada; sitio sagrado del pueblo Kogui." },
