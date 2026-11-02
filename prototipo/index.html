@@ -4,36 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Rutas sostenibles · Santa Marta</title>
-<style>
-  :root { --verde:#1f6f54; --fondo:#f5f7f4; --tinta:#1b2420; --borde:#cfd8d2; --rojo:#a8322d; --ambar:#8a5a00; }
-  * { box-sizing:border-box; }
-  body { margin:0; font-family:"Segoe UI",Arial,sans-serif; color:var(--tinta); background:var(--fondo); line-height:1.45; }
-  header { background:var(--verde); color:#fff; padding:14px 18px; }
-  header h1 { margin:0; font-size:1.15rem; }
-  nav { display:flex; gap:6px; flex-wrap:wrap; padding:10px 18px; background:#fff; border-bottom:1px solid var(--borde); }
-  nav a { padding:6px 12px; border-radius:6px; text-decoration:none; color:var(--tinta); border:1px solid var(--borde); font-size:.9rem; }
-  nav a.activo { background:var(--verde); color:#fff; border-color:var(--verde); }
-  main { max-width:860px; margin:0 auto; padding:18px; }
-  section { display:none; }
-  section.visible { display:block; }
-  h2 { margin:0 0 6px; font-size:1.3rem; }
-  .ayuda { color:#4b5a52; margin:0 0 14px; }
-  .tarjeta { background:#fff; border:1px solid var(--borde); border-radius:8px; padding:14px 16px; margin-bottom:12px; }
-  label { display:block; font-weight:600; margin:10px 0 4px; }
-  select, input[type=date], input[type=text] { width:100%; padding:8px; border:1px solid var(--borde); border-radius:6px; font:inherit; }
-  .opciones label { display:inline-flex; align-items:center; gap:6px; font-weight:400; margin:4px 14px 4px 0; }
-  button, .boton { background:var(--verde); color:#fff; border:0; border-radius:6px; padding:9px 16px; font:inherit; cursor:pointer; text-decoration:none; display:inline-block; }
-  button:disabled { opacity:.45; cursor:not-allowed; }
-  button.sec, .boton.sec { background:#fff; color:var(--verde); border:1px solid var(--verde); }
-  .etiqueta { display:inline-block; font-size:.78rem; padding:2px 8px; border-radius:20px; border:1px solid var(--borde); margin-right:6px; }
-  .ok { color:var(--verde); font-weight:600; }
-  .no { color:var(--rojo); font-weight:600; }
-  .aviso { border-left:4px solid var(--ambar); background:#fff8e8; padding:8px 12px; margin:10px 0; }
-  .descartada { opacity:.92; border-style:dashed; }
-  table { width:100%; border-collapse:collapse; font-size:.92rem; }
-  td, th { padding:6px 8px; border-bottom:1px solid var(--borde); text-align:left; }
-  .estado { margin-top:10px; font-weight:600; }
-</style>
+<link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 <header><h1>Rutas sostenibles · Santa Marta</h1></header>
@@ -73,7 +44,7 @@
   <p><a href="#perfil">Cambiar mi perfil</a></p>
   <p class="ayuda" id="resumen"></p>
   <div id="aptas"></div>
-  <h2 style="margin-top:22px;font-size:1.05rem">No te las mostramos como opción, y por qué</h2>
+  <h2 class="subtitulo">No te las mostramos como opción, y por qué</h2>
   <div id="descartadas"></div>
 </section>
 
@@ -125,79 +96,16 @@
 </section>
 
 </main>
-<script>
-const RUTAS = [
-  { id:"cp", nombre:"Trek a Ciudad Perdida", zona:"Ciudad Perdida", dif:3, act:"Trekking", horas:96, costo:1800000, cupo:250, guia:true, norma:"Solo con agencia autorizada; sitio sagrado del pueblo Kogui." },
-  { id:"ty", nombre:"Sendero Tayrona hasta Cañaveral", zona:"Parque Tayrona", dif:2, act:"Ecoturismo", horas:5, costo:120000, cupo:4000, guia:false, norma:"No dejar residuos ni dañar flora y fauna." },
-  { id:"mi", nombre:"Cascadas y café en Minca", zona:"Minca", dif:1, act:"Ecoturismo", horas:6, costo:90000, cupo:1500, guia:false, norma:"Respetar los senderos señalizados." },
-  { id:"tg", nombre:"Buceo en Taganga", zona:"Taganga", dif:2, act:"Buceo", horas:4, costo:150000, cupo:2000, guia:false, norma:"Buceo solo con escuela certificada." },
-];
-const NIVEL = { 1:"Baja", 2:"Media", 3:"Alta" };
-let cierres = [{ zona:"Parque Tayrona", ini:"2026-02-01", fin:"2026-02-15", motivo:"Cierre periódico acordado con pueblos indígenas" }];
-const $ = (id) => document.getElementById(id);
-const cop = (n) => "$ " + n.toLocaleString("es-CO");
-const fmt = (d) => new Date(d + "T00:00:00").toLocaleDateString("es-CO", { day:"numeric", month:"long" });
-
-
-function cierreDe(zona, fecha) { return cierres.find(c => c.zona === zona && c.ini <= fecha && fecha <= c.fin); }
-function perfil() {
-  return { dif:+$("dif").value, acts:[...document.querySelectorAll("#acts input:checked")].map(i => i.value), fecha:$("fecha").value };
-}
-function motivoDescarte(r, p) {
-  const c = cierreDe(r.zona, p.fecha);
-  if (c) return "La zona está cerrada del " + fmt(c.ini) + " al " + fmt(c.fin) + ". " + c.motivo + ".";
-  if (r.dif > p.dif) return "Es de dificultad " + NIVEL[r.dif].toLowerCase() + " y marcaste " + NIVEL[p.dif].toLowerCase() + " como máximo.";
-  if (!p.acts.includes(r.act)) return "Es de " + r.act.toLowerCase() + ", que no marcaste entre lo que te gusta.";
-  return null;
-}
-function tarjeta(r, motivo) {
-  const url = "<a class='boton" + (motivo ? " sec" : "") + "' href='#detalle:" + r.id + "'>" + (motivo ? "Ver estado de la ruta" : "Ver detalle") + "</a>";
-  return "<div class='tarjeta" + (motivo ? " descartada" : "") + "'><strong>" + r.nombre + "</strong><br>" +
-    "<span class='etiqueta'>" + r.zona + "</span><span class='etiqueta'>Dificultad " + NIVEL[r.dif].toLowerCase() + "</span><span class='etiqueta'>" + r.act + "</span>" +
-    (motivo ? "<p class='no'>" + motivo + "</p>" : "<p>Duración: " + r.horas + " h · Desde " + cop(r.costo) + "</p>") + url + "</div>";
-}
-function recomendar() {
-  const p = perfil(), aptas = [], desc = [];
-  RUTAS.forEach(r => { const m = motivoDescarte(r, p); (m ? desc : aptas).push([r, m]); });
-  $("resumen").textContent = "Para el " + fmt(p.fecha) + ", caminatas de dificultad hasta " + NIVEL[p.dif].toLowerCase() + ": " + aptas.length + " de " + RUTAS.length + " rutas son aptas para ti.";
-  $("aptas").innerHTML = aptas.length ? aptas.map(([r]) => tarjeta(r)).join("") : "<div class='aviso'>Ninguna ruta cumple con todo lo que marcaste. Prueba con otra fecha o con más actividades.</div>";
-  $("descartadas").innerHTML = desc.map(([r, m]) => tarjeta(r, m)).join("");
-}
-function detalle(id) {
-  const r = RUTAS.find(x => x.id === id);
-  if (!r) { location.hash = "#recomendadas"; return; }
-  const p = perfil(), c = cierreDe(r.zona, p.fecha);
-  $("d-nombre").textContent = r.nombre;
-  $("d-sub").textContent = r.zona + " · " + r.act;
-  $("d-estado").innerHTML = c ? "<span class='no'>Cerrada hasta el " + fmt(c.fin) + "</span>" : "<span class='ok'>Abierta el " + fmt(p.fecha) + "</span>";
-  $("d-dif").textContent = NIVEL[r.dif];
-  $("d-dur").textContent = r.horas >= 24 ? (r.horas / 24) + " días" : r.horas + " horas";
-  $("d-costo").textContent = cop(r.costo) + " (cifra ilustrativa)";
-  $("d-cupo").textContent = r.cupo.toLocaleString("es-CO") + " personas por día (cifra ilustrativa)";
-  $("d-norma").textContent = r.norma;
-  const aviso = c ? "No puedes solicitar esta ruta en esta fecha: la zona está cerrada hasta el " + fmt(c.fin) + ". " + c.motivo + "." : (r.guia ? "Esta ruta solo se puede hacer con un operador autorizado." : "");
-  $("d-aviso").hidden = !aviso;
-  $("d-aviso").textContent = aviso;
-  $("pedir").disabled = !!c;
-  $("pedido").textContent = "";
-}
-function ir() {
-  const [h, param] = decodeURIComponent(location.hash || "#perfil").slice(1).split(":");
-  document.querySelectorAll("section").forEach(s => s.classList.toggle("visible", s.id === h));
-  document.querySelectorAll("#menu a").forEach(a => a.classList.toggle("activo", a.getAttribute("href") === "#" + h));
-  if (h === "recomendadas") recomendar();
-  if (h === "detalle") detalle(param);
-}
-$("ver").onclick = () => { $("guardado").textContent = "Perfil guardado."; location.hash = "#recomendadas"; };
-$("pedir").onclick = () => { $("pedido").textContent = "Solicitud enviada. Te escribirá un guía u operador para confirmar."; };
-$("publicar").onclick = () => { $("o-estado").textContent = "Ruta publicada: " + $("o-nombre").value + " (" + $("o-zona").value + ", dificultad " + $("o-dif").value.toLowerCase() + ")."; };
-$("cerrar").onclick = () => {
-  if ($("a-fin").value < $("a-ini").value) { $("a-estado").textContent = "La fecha final no puede ser anterior a la inicial. Corrígela para publicar el cierre."; return; }
-  cierres.push({ zona:$("a-zona").value, ini:$("a-ini").value, fin:$("a-fin").value, motivo:$("a-motivo").value });
-  $("a-estado").textContent = "Cierre publicado para " + $("a-zona").value + " del " + fmt($("a-ini").value) + " al " + fmt($("a-fin").value) + ". Ya afecta las recomendaciones.";
-};
-addEventListener("hashchange", ir);
-ir();
-</script>
+<!-- Orden de carga: utilidades -> datos -> servicios (API simulada) -> vistas -> enrutador -> inicio -->
+<script src="js/utilidades.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/servicios.js"></script>
+<script src="js/vistas/perfil.js"></script>
+<script src="js/vistas/recomendadas.js"></script>
+<script src="js/vistas/detalle.js"></script>
+<script src="js/vistas/oferta.js"></script>
+<script src="js/vistas/autoridad.js"></script>
+<script src="js/router.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

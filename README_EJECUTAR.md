@@ -8,7 +8,7 @@ Doris Arzuaga y Gabriela Zabaleta. Ingeniería Web.
 |---|---|
 | `Proyecto_Final_Rutas_Sostenibles.docx` / `.pdf` | Documento técnico consolidado (entregable 1) |
 | `evidencias/` | Diagramas y evidencias de ejecución en Protégé y Neo4j (entregables 2 y 6) |
-| `prototipo/index.html` | Prototipo navegable (entregable 3) |
+| `prototipo/` | Prototipo navegable (entregable 3): `index.html` + `css/` + `js/` |
 | `ontologia/rutas_sostenibles.owl` | Ontología en formato OWL (entregable 4); `.ttl` es la misma en Turtle |
 | `grafo/rutas_sostenibles.cypher` | Consultas y carga del grafo en Cypher (entregable 5) |
 | `grafo/cargar_grafo.ps1` | Levanta Neo4j en Docker y carga el grafo |
@@ -33,6 +33,21 @@ El repositorio Git (entregable 7) es esta misma carpeta (`git log` muestra el hi
 
 ### 1. Prototipo (no necesita nada)
 Abrir `prototipo/index.html` con cualquier navegador. Con la fecha 2026-02-10 el sendero del Tayrona aparece descartado por el cierre.
+
+Estructura del código (módulos que siguen la arquitectura del documento):
+
+| Archivo | Responsabilidad |
+|---|---|
+| `index.html` | Solo la estructura de las pantallas |
+| `css/estilos.css` | Estilos |
+| `js/utilidades.js` | Funciones comunes (formato de fechas y moneda) |
+| `js/datos.js` | Datos simulados; en la solución real están en el grafo |
+| `js/servicios.js` | API REST simulada (un método por servicio) y reglas del dominio |
+| `js/vistas/*.js` | Un módulo por pantalla: perfil, recomendadas, detalle, oferta, autoridad |
+| `js/router.js` | Modelo navegacional: muestra la pantalla según el `#hash` |
+| `js/app.js` | Punto de entrada |
+
+Se usan scripts clásicos con un espacio de nombres `App` (no módulos ES) para que funcione al abrirlo con doble clic, sin servidor.
 
 ### 2. Ontología en Protégé
 1. Instalar Protégé 5.6.9 desde https://protege.stanford.edu/ (incluye su propio Java).

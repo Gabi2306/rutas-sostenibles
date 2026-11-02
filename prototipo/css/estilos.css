@@ -1,0 +1,31 @@
+/* Estilos del prototipo. Variables de color en :root; componentes: menú, tarjetas, formularios, avisos. */
+
+:root { --verde:#1f6f54; --fondo:#f5f7f4; --tinta:#1b2420; --borde:#cfd8d2; --rojo:#a8322d; --ambar:#8a5a00; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:"Segoe UI",Arial,sans-serif; color:var(--tinta); background:var(--fondo); line-height:1.45; }
+header { background:var(--verde); color:#fff; padding:14px 18px; }
+header h1 { margin:0; font-size:1.15rem; }
+nav { display:flex; gap:6px; flex-wrap:wrap; padding:10px 18px; background:#fff; border-bottom:1px solid var(--borde); }
+nav a { padding:6px 12px; border-radius:6px; text-decoration:none; color:var(--tinta); border:1px solid var(--borde); font-size:.9rem; }
+nav a.activo { background:var(--verde); color:#fff; border-color:var(--verde); }
+main { max-width:860px; margin:0 auto; padding:18px; }
+section { display:none; }
+section.visible { display:block; }
+h2 { margin:0 0 6px; font-size:1.3rem; }
+h2.subtitulo { margin-top:22px; font-size:1.05rem; }
+.ayuda { color:#4b5a52; margin:0 0 14px; }
+.tarjeta { background:#fff; border:1px solid var(--borde); border-radius:8px; padding:14px 16px; margin-bottom:12px; }
+label { display:block; font-weight:600; margin:10px 0 4px; }
+select, input[type=date], input[type=text] { width:100%; padding:8px; border:1px solid var(--borde); border-radius:6px; font:inherit; }
+.opciones label { display:inline-flex; align-items:center; gap:6px; font-weight:400; margin:4px 14px 4px 0; }
+button, .boton { background:var(--verde); color:#fff; border:0; border-radius:6px; padding:9px 16px; font:inherit; cursor:pointer; text-decoration:none; display:inline-block; }
+button:disabled { opacity:.45; cursor:not-allowed; }
+button.sec, .boton.sec { background:#fff; color:var(--verde); border:1px solid var(--verde); }
+.etiqueta { display:inline-block; font-size:.78rem; padding:2px 8px; border-radius:20px; border:1px solid var(--borde); margin-right:6px; }
+.ok { color:var(--verde); font-weight:600; }
+.no { color:var(--rojo); font-weight:600; }
+.aviso { border-left:4px solid var(--ambar); background:#fff8e8; padding:8px 12px; margin:10px 0; }
+.descartada { opacity:.92; border-style:dashed; }
+table { width:100%; border-collapse:collapse; font-size:.92rem; }
+td, th { padding:6px 8px; border-bottom:1px solid var(--borde); text-align:left; }
+.estado { margin-top:10px; font-weight:600; }
