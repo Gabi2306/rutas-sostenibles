@@ -14,7 +14,20 @@ Doris Arzuaga y Gabriela Zabaleta. Ingeniería Web.
 | `grafo/cargar_grafo.ps1` | Levanta Neo4j en Docker y carga el grafo |
 | `presentacion/` | Presentación de la sustentación (entregable 8) |
 
-El repositorio Git (entregable 7) no va en este zip: se crea con la carpeta del proyecto y se sube a GitHub.
+El repositorio Git (entregable 7) es esta misma carpeta (`git log` muestra el historial).
+
+## Subir el repositorio a GitHub y publicar el prototipo
+
+1. Crear un repositorio vacío en https://github.com/new (por ejemplo `rutas-sostenibles`, público, sin README).
+2. Desde esta carpeta:
+
+        git remote add origin https://github.com/USUARIO/rutas-sostenibles.git
+        git push -u origin main
+
+3. Agregar a la otra integrante como colaboradora (Settings, Collaborators) para que sus aportes queden con su nombre.
+4. Prototipo en línea: Settings, Pages, Branch `main`, carpeta `/ (root)`. El enlace queda en
+   `https://USUARIO.github.io/rutas-sostenibles/prototipo/`.
+5. Pegar ambos enlaces en la sección 10 del documento (resaltados en amarillo), exportar de nuevo a PDF y hacer commit.
 
 ## Cómo ejecutarlo en otro computador
 
