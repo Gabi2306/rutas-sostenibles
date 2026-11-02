@@ -1,0 +1,47 @@
+RESULTADOS DE EJECUTAR grafo/rutas_sostenibles.cypher EN NEO4J 5
+Transcrito de las evidencias evidencias/neo4j_01.png y evidencias/neo4j_02.png
+=====================================================================
+
+Tamaño del grafo
+---------------------------------------------------------------------
+nodos | relaciones
+19    | 19
+
+
+Consulta 1. Rutas disponibles el 2026-02-10
+(la zona que recorren no tiene un cierre que cubra esa fecha)
+---------------------------------------------------------------------
+ruta                         | zona
+Buceo en Taganga             | Taganga
+Cascadas y café en Minca     | Minca
+Trek a Ciudad Perdida        | Sector Ciudad Perdida (Teyuna)
+
+-> El "Sendero Tayrona hasta Cañaveral" no aparece porque el Parque
+   Tayrona tiene un cierre del 2026-02-01 al 2026-02-15.
+
+
+Consulta 2. Rutas de trekking: quién las ofrece y quién las guía
+---------------------------------------------------------------------
+ruta                   | operador                  | guia
+Trek a Ciudad Perdida  | Sierra Segura (ficticio)  | Laura (ficticia)
+
+
+Consulta 3. Recomendación para Ana el 2026-02-10
+(dificultad que soporta o menor + actividad que prefiere + zona abierta)
+---------------------------------------------------------------------
+rutaRecomendada            | dificultad | zona  | costo
+Cascadas y café en Minca   | Baja       | Minca | 90000
+
+-> La relación "recomendada" no existe en el grafo: se deduce al
+   combinar la dificultad que soporta Ana (Media), su actividad
+   preferida (Ecoturismo) y el estado de la zona en esa fecha.
+
+
+Consulta 3 con fecha 2026-03-01 (fuera del cierre)
+---------------------------------------------------------------------
+rutaRecomendada                   | dificultad | zona
+Cascadas y café en Minca          | Baja       | Minca
+Sendero Tayrona hasta Cañaveral   | Media      | Parque Nacional Natural Tayrona
+
+-> Sin el cierre vigente, el sendero del Tayrona vuelve a ser
+   recomendable: la recomendación depende de la fecha.
