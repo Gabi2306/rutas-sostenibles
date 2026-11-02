@@ -1,0 +1,276 @@
+@prefix : <http://example.org/turismo/RutasSostenibles#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/turismo/RutasSostenibles> a owl:Ontology .
+
+:NormaSinResiduos a :Norma,
+        owl:NamedIndividual ;
+    :aplicaEn :ZonaTayrona ;
+    :nombre "No dejar residuos ni dañar flora y fauna"^^xsd:string .
+
+:ParquesNacionales a :AutoridadAmbiental,
+        owl:NamedIndividual ;
+    :emiteCierre :CierreTayronaFebrero ;
+    :nombre "Parques Nacionales Naturales"^^xsd:string .
+
+:RutaAltaDificultad a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Ruta [ a owl:Restriction ;
+                        owl:hasValue :Alta ;
+                        owl:onProperty :tieneDificultad ] ) ] .
+
+:RutaCiudadPerdida a :Ruta,
+        owl:NamedIndividual ;
+    :costoEstimado 1800000 ;
+    :duracionHoras 96.0 ;
+    :guiadaPor :GuiaLaura ;
+    :nombre "Trek a Ciudad Perdida"^^xsd:string ;
+    :ofrecidaPor :OperadorSierraSegura ;
+    :recorre :ZonaCiudadPerdida ;
+    :tieneActividad :Trekking ;
+    :tieneDificultad :Alta .
+
+:RutaGuiadaObligatoria a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Ruta [ a owl:Restriction ;
+                        owl:hasValue :Trekking ;
+                        owl:onProperty :tieneActividad ] ) ] .
+
+:RutaMincaCascadas a :Ruta,
+        owl:NamedIndividual ;
+    :costoEstimado 90000 ;
+    :duracionHoras 6.0 ;
+    :nombre "Cascadas y café en Minca"^^xsd:string ;
+    :recorre :ZonaMinca ;
+    :tieneActividad :Ecoturismo ;
+    :tieneDificultad :Baja .
+
+:RutaNoDisponible a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Ruta [ a owl:Restriction ;
+                        owl:onProperty :recorre ;
+                        owl:someValuesFrom :ZonaCerrada ] ) ] .
+
+:RutaTagangaBuceo a :Ruta,
+        owl:NamedIndividual ;
+    :costoEstimado 150000 ;
+    :duracionHoras 4.0 ;
+    :nombre "Buceo en Taganga"^^xsd:string ;
+    :recorre :ZonaTaganga ;
+    :tieneActividad :Buceo ;
+    :tieneDificultad :Media .
+
+:RutaTayronaCanaveral a :Ruta,
+        owl:NamedIndividual ;
+    :costoEstimado 120000 ;
+    :duracionHoras 5.0 ;
+    :nombre "Sendero Tayrona hasta Cañaveral"^^xsd:string ;
+    :recorre :ZonaTayrona ;
+    :tieneActividad :Ecoturismo ;
+    :tieneDificultad :Media .
+
+:TuristaAna a :Turista,
+        owl:NamedIndividual ;
+    :nombre "Ana (turista ficticia)"^^xsd:string ;
+    :prefiereActividad :Ecoturismo ;
+    :soportaDificultad :Media .
+
+:aplicaEn a owl:ObjectProperty ;
+    rdfs:domain :Norma ;
+    rdfs:range :Zona .
+
+:capacidadDiaria a owl:DatatypeProperty ;
+    rdfs:domain :Zona ;
+    rdfs:range xsd:integer .
+
+:costoEstimado a owl:DatatypeProperty ;
+    rdfs:domain :Ruta ;
+    rdfs:range xsd:integer .
+
+:duracionHoras a owl:DatatypeProperty ;
+    rdfs:domain :Ruta ;
+    rdfs:range xsd:decimal .
+
+:emiteCierre a owl:ObjectProperty ;
+    rdfs:domain :AutoridadAmbiental ;
+    rdfs:range :Cierre .
+
+:fechaFin a owl:DatatypeProperty ;
+    rdfs:domain :Cierre ;
+    rdfs:range xsd:dateTime .
+
+:fechaInicio a owl:DatatypeProperty ;
+    rdfs:domain :Cierre ;
+    rdfs:range xsd:dateTime .
+
+:guiadaPor a owl:ObjectProperty ;
+    rdfs:domain :Ruta ;
+    rdfs:range :Guia .
+
+:motivo a owl:DatatypeProperty ;
+    rdfs:domain :Cierre ;
+    rdfs:range xsd:string .
+
+:nombre a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+:ofrecidaPor a owl:ObjectProperty ;
+    rdfs:domain :Ruta ;
+    rdfs:range :OperadorTuristico .
+
+:prefiereActividad a owl:ObjectProperty ;
+    rdfs:domain :Turista ;
+    rdfs:range :TipoActividad .
+
+:trabajaCon a owl:ObjectProperty ;
+    rdfs:domain :Guia ;
+    rdfs:range :OperadorTuristico .
+
+:Baja a :Dificultad,
+        owl:NamedIndividual ;
+    :nombre "Baja"^^xsd:string ;
+    owl:differentFrom :Alta,
+        :Media .
+
+:GuiaLaura a :Guia,
+        owl:NamedIndividual ;
+    :nombre "Laura (guía ficticia)"^^xsd:string ;
+    :trabajaCon :OperadorSierraSegura .
+
+:ZonaCerrada a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Zona [ a owl:Restriction ;
+                        owl:onProperty :tieneCierreVigente ;
+                        owl:someValuesFrom :Cierre ] ) ] .
+
+:ZonaCiudadPerdida a :Zona,
+        owl:NamedIndividual ;
+    :capacidadDiaria 250 ;
+    :nombre "Sector Ciudad Perdida (Teyuna)"^^xsd:string .
+
+:ZonaMinca a :Zona,
+        owl:NamedIndividual ;
+    :capacidadDiaria 1500 ;
+    :nombre "Minca"^^xsd:string .
+
+:ZonaTaganga a :Zona,
+        owl:NamedIndividual ;
+    :capacidadDiaria 2000 ;
+    :nombre "Taganga"^^xsd:string .
+
+:afectaA a owl:ObjectProperty ;
+    rdfs:domain :Cierre ;
+    rdfs:range :Zona .
+
+:soportaDificultad a owl:ObjectProperty ;
+    rdfs:domain :Turista ;
+    rdfs:range :Dificultad .
+
+:tieneActividad a owl:ObjectProperty ;
+    rdfs:domain :Ruta ;
+    rdfs:range :TipoActividad .
+
+:tieneCierreVigente a owl:ObjectProperty ;
+    rdfs:domain :Zona ;
+    rdfs:range :Cierre .
+
+:AutoridadAmbiental a owl:Class .
+
+:Buceo a :TipoActividad,
+        owl:NamedIndividual ;
+    :nombre "Buceo"^^xsd:string ;
+    owl:differentFrom :Cultural,
+        :Ecoturismo .
+
+:CierreTayronaFebrero a :Cierre,
+        owl:NamedIndividual ;
+    :afectaA :ZonaTayrona ;
+    :fechaFin "2026-02-15T23:59:59"^^xsd:dateTime ;
+    :fechaInicio "2026-02-01T00:00:00"^^xsd:dateTime ;
+    :motivo "Cierre periódico acordado con pueblos indígenas"^^xsd:string ;
+    :nombre "Cierre periódico del Tayrona"^^xsd:string .
+
+:Norma a owl:Class .
+
+:OperadorSierraSegura a :OperadorTuristico,
+        owl:NamedIndividual ;
+    :nombre "Sierra Segura (operador ficticio)"^^xsd:string .
+
+:Trekking a :TipoActividad,
+        owl:NamedIndividual ;
+    :nombre "Trekking"^^xsd:string ;
+    owl:differentFrom :Buceo,
+        :Cultural,
+        :Ecoturismo .
+
+:Usuario a owl:Class .
+
+:recorre a owl:ObjectProperty ;
+    rdfs:domain :Ruta ;
+    rdfs:range :Zona .
+
+:tieneDificultad a owl:ObjectProperty ;
+    rdfs:domain :Ruta ;
+    rdfs:range :Dificultad .
+
+:Cultural a :TipoActividad,
+        owl:NamedIndividual ;
+    :nombre "Cultural"^^xsd:string .
+
+:Guia a owl:Class ;
+    rdfs:subClassOf :Usuario .
+
+:OperadorTuristico a owl:Class .
+
+:Turista a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :Dificultad ;
+            owl:onProperty :soportaDificultad ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        :Usuario .
+
+:ZonaTayrona a :Zona,
+        owl:NamedIndividual ;
+    :capacidadDiaria 4000 ;
+    :nombre "Parque Nacional Natural Tayrona"^^xsd:string ;
+    :tieneCierreVigente :CierreTayronaFebrero .
+
+:Alta a :Dificultad,
+        owl:NamedIndividual ;
+    :nombre "Alta"^^xsd:string .
+
+:Media a :Dificultad,
+        owl:NamedIndividual ;
+    :nombre "Media"^^xsd:string ;
+    owl:differentFrom :Alta .
+
+:Ecoturismo a :TipoActividad,
+        owl:NamedIndividual ;
+    :nombre "Ecoturismo"^^xsd:string ;
+    owl:differentFrom :Cultural .
+
+:TipoActividad a owl:Class .
+
+:Dificultad a owl:Class .
+
+:Cierre a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :Zona ;
+            owl:onProperty :afectaA ] .
+
+:Zona a owl:Class .
+
+:Ruta a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :Dificultad ;
+            owl:onProperty :tieneDificultad ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :Zona ;
+            owl:onProperty :recorre ] .
+

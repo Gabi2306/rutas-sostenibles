@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="http://example.org/turismo/RutasSostenibles#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#soportaDificultad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Turista"/>
+    <rdfs:range rdf:resource="http://example.org/turismo/RutasSostenibles#Dificultad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#fechaFin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Cierre"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N55428bc1c4dc47249a0c226dd3d21140">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/turismo/RutasSostenibles#tieneDificultad"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://example.org/turismo/RutasSostenibles#Dificultad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#ofrecidaPor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <rdfs:range rdf:resource="http://example.org/turismo/RutasSostenibles#OperadorTuristico"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Baja">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Dificultad"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Baja</nombre>
+    <owl:differentFrom rdf:resource="http://example.org/turismo/RutasSostenibles#Media"/>
+    <owl:differentFrom rdf:resource="http://example.org/turismo/RutasSostenibles#Alta"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N89cd8038d07c4cba95c242ac843183cf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/turismo/RutasSostenibles#recorre"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    <owl:onClass rdf:resource="http://example.org/turismo/RutasSostenibles#Zona"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#tieneDificultad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <rdfs:range rdf:resource="http://example.org/turismo/RutasSostenibles#Dificultad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#capacidadDiaria">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Zona"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Ecoturismo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#TipoActividad"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ecoturismo</nombre>
+    <owl:differentFrom rdf:resource="http://example.org/turismo/RutasSostenibles#Cultural"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#fechaInicio">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Cierre"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#guiadaPor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <rdfs:range rdf:resource="http://example.org/turismo/RutasSostenibles#Guia"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#RutaCiudadPerdida">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Trek a Ciudad Perdida</nombre>
+    <recorre rdf:resource="http://example.org/turismo/RutasSostenibles#ZonaCiudadPerdida"/>
+    <tieneDificultad rdf:resource="http://example.org/turismo/RutasSostenibles#Alta"/>
+    <tieneActividad rdf:resource="http://example.org/turismo/RutasSostenibles#Trekking"/>
+    <duracionHoras rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">96</duracionHoras>
+    <costoEstimado rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1800000</costoEstimado>
+    <ofrecidaPor rdf:resource="http://example.org/turismo/RutasSostenibles#OperadorSierraSegura"/>
+    <guiadaPor rdf:resource="http://example.org/turismo/RutasSostenibles#GuiaLaura"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#RutaMincaCascadas">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cascadas y café en Minca</nombre>
+    <recorre rdf:resource="http://example.org/turismo/RutasSostenibles#ZonaMinca"/>
+    <tieneDificultad rdf:resource="http://example.org/turismo/RutasSostenibles#Baja"/>
+    <tieneActividad rdf:resource="http://example.org/turismo/RutasSostenibles#Ecoturismo"/>
+    <duracionHoras rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6</duracionHoras>
+    <costoEstimado rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90000</costoEstimado>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Alta">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Dificultad"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alta</nombre>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Buceo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#TipoActividad"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Buceo</nombre>
+    <owl:differentFrom rdf:resource="http://example.org/turismo/RutasSostenibles#Ecoturismo"/>
+    <owl:differentFrom rdf:resource="http://example.org/turismo/RutasSostenibles#Cultural"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#trabajaCon">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Guia"/>
+    <rdfs:range rdf:resource="http://example.org/turismo/RutasSostenibles#OperadorTuristico"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N88cd7a2bc5094e9fa69d3bf8ae249284">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/turismo/RutasSostenibles#afectaA"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    <owl:onClass rdf:resource="http://example.org/turismo/RutasSostenibles#Zona"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#prefiereActividad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Turista"/>
+    <rdfs:range rdf:resource="http://example.org/turismo/RutasSostenibles#TipoActividad"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N84e54f94a48c4e398116d7d419b87031">
+    <rdf:first rdf:nodeID="Nb57fedc341ed4315a92c1034b7f88640"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N205622809f4044eb8ffd1edc213fe09c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/turismo/RutasSostenibles#tieneActividad"/>
+    <owl:hasValue rdf:resource="http://example.org/turismo/RutasSostenibles#Trekking"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Trekking">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#TipoActividad"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Trekking</nombre>
+    <owl:differentFrom rdf:resource="http://example.org/turismo/RutasSostenibles#Buceo"/>
+    <owl:differentFrom rdf:resource="http://example.org/turismo/RutasSostenibles#Ecoturismo"/>
+    <owl:differentFrom rdf:resource="http://example.org/turismo/RutasSostenibles#Cultural"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#emiteCierre">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#AutoridadAmbiental"/>
+    <rdfs:range rdf:resource="http://example.org/turismo/RutasSostenibles#Cierre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#NormaSinResiduos">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Norma"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">No dejar residuos ni dañar flora y fauna</nombre>
+    <aplicaEn rdf:resource="http://example.org/turismo/RutasSostenibles#ZonaTayrona"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N57e1585c9c4542268bf93bd49fb8f6a3">
+    <rdf:first rdf:nodeID="N3d950c6d6aa34c66acaf72909babaefe"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#CierreTayronaFebrero">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Cierre"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cierre periódico del Tayrona</nombre>
+    <afectaA rdf:resource="http://example.org/turismo/RutasSostenibles#ZonaTayrona"/>
+    <fechaInicio rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-02-01T00:00:00</fechaInicio>
+    <fechaFin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-02-15T23:59:59</fechaFin>
+    <motivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cierre periódico acordado con pueblos indígenas</motivo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#RutaTayronaCanaveral">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sendero Tayrona hasta Cañaveral</nombre>
+    <recorre rdf:resource="http://example.org/turismo/RutasSostenibles#ZonaTayrona"/>
+    <tieneDificultad rdf:resource="http://example.org/turismo/RutasSostenibles#Media"/>
+    <tieneActividad rdf:resource="http://example.org/turismo/RutasSostenibles#Ecoturismo"/>
+    <duracionHoras rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</duracionHoras>
+    <costoEstimado rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120000</costoEstimado>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Cierre">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="N88cd7a2bc5094e9fa69d3bf8ae249284"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#tieneCierreVigente">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Zona"/>
+    <rdfs:range rdf:resource="http://example.org/turismo/RutasSostenibles#Cierre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#tieneActividad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <rdfs:range rdf:resource="http://example.org/turismo/RutasSostenibles#TipoActividad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#OperadorTuristico">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#ZonaTayrona">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Zona"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parque Nacional Natural Tayrona</nombre>
+    <capacidadDiaria rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4000</capacidadDiaria>
+    <tieneCierreVigente rdf:resource="http://example.org/turismo/RutasSostenibles#CierreTayronaFebrero"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#RutaGuiadaObligatoria">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="Ncee634efc33542839a83e53da8a29e1f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncee634efc33542839a83e53da8a29e1f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Nc4ad06c1cc674c598a39414437363f8a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#recorre">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <rdfs:range rdf:resource="http://example.org/turismo/RutasSostenibles#Zona"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#ZonaTaganga">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Zona"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Taganga</nombre>
+    <capacidadDiaria rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</capacidadDiaria>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Cultural">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#TipoActividad"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cultural</nombre>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#RutaTagangaBuceo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Buceo en Taganga</nombre>
+    <recorre rdf:resource="http://example.org/turismo/RutasSostenibles#ZonaTaganga"/>
+    <tieneDificultad rdf:resource="http://example.org/turismo/RutasSostenibles#Media"/>
+    <tieneActividad rdf:resource="http://example.org/turismo/RutasSostenibles#Buceo"/>
+    <duracionHoras rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</duracionHoras>
+    <costoEstimado rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150000</costoEstimado>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N249be47d7c9c491995d486bbd9eb512a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/turismo/RutasSostenibles#soportaDificultad"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://example.org/turismo/RutasSostenibles#Dificultad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#ZonaCiudadPerdida">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Zona"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sector Ciudad Perdida (Teyuna)</nombre>
+    <capacidadDiaria rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</capacidadDiaria>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#costoEstimado">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#AutoridadAmbiental">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#afectaA">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Cierre"/>
+    <rdfs:range rdf:resource="http://example.org/turismo/RutasSostenibles#Zona"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#ParquesNacionales">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#AutoridadAmbiental"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parques Nacionales Naturales</nombre>
+    <emiteCierre rdf:resource="http://example.org/turismo/RutasSostenibles#CierreTayronaFebrero"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#TuristaAna">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Turista"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ana (turista ficticia)</nombre>
+    <soportaDificultad rdf:resource="http://example.org/turismo/RutasSostenibles#Media"/>
+    <prefiereActividad rdf:resource="http://example.org/turismo/RutasSostenibles#Ecoturismo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#ZonaCerrada">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="N529b773329344a3ca3e9016bedd435e7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc4ad06c1cc674c598a39414437363f8a">
+    <rdf:first rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <rdf:rest rdf:nodeID="N5c900208b27b481a9c18c3c2fb8541e5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Zona">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Dificultad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#nombre">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N552870ba56074cdeb155f3d0f5d822af">
+    <rdf:first rdf:nodeID="Nde3f56ad7e6c4f509ecd479da8b0fd24"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Media">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Dificultad"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Media</nombre>
+    <owl:differentFrom rdf:resource="http://example.org/turismo/RutasSostenibles#Alta"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nde3f56ad7e6c4f509ecd479da8b0fd24">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/turismo/RutasSostenibles#tieneCierreVigente"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/turismo/RutasSostenibles#Cierre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#GuiaLaura">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Guia"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Laura (guía ficticia)</nombre>
+    <trabajaCon rdf:resource="http://example.org/turismo/RutasSostenibles#OperadorSierraSegura"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N13f0cf9035e94881b9f02ab9064d5709">
+    <rdf:first rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <rdf:rest rdf:nodeID="N57e1585c9c4542268bf93bd49fb8f6a3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Turista">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/turismo/RutasSostenibles#Usuario"/>
+    <rdfs:subClassOf rdf:nodeID="N249be47d7c9c491995d486bbd9eb512a"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb57fedc341ed4315a92c1034b7f88640">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/turismo/RutasSostenibles#recorre"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/turismo/RutasSostenibles#ZonaCerrada"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#ZonaMinca">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#Zona"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Minca</nombre>
+    <capacidadDiaria rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1500</capacidadDiaria>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#RutaAltaDificultad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="Nf6e8e0b890bd4c31b2eedeb1ff34a338"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N529b773329344a3ca3e9016bedd435e7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N8798fe5af7d349849aff29a1d2e88330"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#TipoActividad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#duracionHoras">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Usuario">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8798fe5af7d349849aff29a1d2e88330">
+    <rdf:first rdf:resource="http://example.org/turismo/RutasSostenibles#Zona"/>
+    <rdf:rest rdf:nodeID="N552870ba56074cdeb155f3d0f5d822af"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#aplicaEn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Norma"/>
+    <rdfs:range rdf:resource="http://example.org/turismo/RutasSostenibles#Zona"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Norma">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0aa8b5f5134d41c4b2bbbf44611b3f62">
+    <rdf:first rdf:resource="http://example.org/turismo/RutasSostenibles#Ruta"/>
+    <rdf:rest rdf:nodeID="N84e54f94a48c4e398116d7d419b87031"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Ruta">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="N55428bc1c4dc47249a0c226dd3d21140"/>
+    <rdfs:subClassOf rdf:nodeID="N89cd8038d07c4cba95c242ac843183cf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#Guia">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/turismo/RutasSostenibles#Usuario"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#OperadorSierraSegura">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/turismo/RutasSostenibles#OperadorTuristico"/>
+    <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sierra Segura (operador ficticio)</nombre>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#motivo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/turismo/RutasSostenibles#Cierre"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3d950c6d6aa34c66acaf72909babaefe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/turismo/RutasSostenibles#tieneDificultad"/>
+    <owl:hasValue rdf:resource="http://example.org/turismo/RutasSostenibles#Alta"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5c900208b27b481a9c18c3c2fb8541e5">
+    <rdf:first rdf:nodeID="N205622809f4044eb8ffd1edc213fe09c"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf6e8e0b890bd4c31b2eedeb1ff34a338">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N13f0cf9035e94881b9f02ab9064d5709"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc95343f929ff4585b10e7eaa414e7542">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N0aa8b5f5134d41c4b2bbbf44611b3f62"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/turismo/RutasSostenibles#RutaNoDisponible">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="Nc95343f929ff4585b10e7eaa414e7542"/>
+  </rdf:Description>
+</rdf:RDF>
